@@ -490,4 +490,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-.docker
+.docker/mssql/data
+.docker/mssql/log
+.docker/mssql/secrets
