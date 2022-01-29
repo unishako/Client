@@ -2,8 +2,5 @@ namespace Web.Models;
 
 public class HomeRepository : IHomeRepository
 {
-    public int Count()
-    {
-        return 100;
-    }
+    public int Count() => 100;
 }
