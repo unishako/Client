@@ -1,11 +1,24 @@
+using System.Data;
 using Web.Models;
+using System.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IHomeService, HomeService>();
-builder.Services.AddScoped<IHomeRepository, HomeRepository>();
+builder.Services.AddSingleton<IHomeService, HomeService>();
+builder.Services.AddSingleton<IHomeRepository, HomeRepository>();
+
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile(path: "appsettings.json")
+    .Build();
+
+builder.Services.AddSingleton<IDbConnection>(
+    _=> new SqlConnection(
+        configuration.GetConnectionString("DefaultConnection")
+        )
+    );
 
 var app = builder.Build();
 

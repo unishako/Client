@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 20
+sleep 60
 
 if [ `ls -U1 /var/opt/mssql/data | grep $DB_NAME | wc -l` -eq 0 ]; then
     cd /docker-entrypoint-initdb.d

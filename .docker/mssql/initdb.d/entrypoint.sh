@@ -6,6 +6,4 @@ LOG_ERR=/var/opt/mssql/log/init-stderr.log
 exec 1>>$LOG_OUT
 exec 2>>$LOG_ERR
 
-# SQL Serverが前だとコンテナが停止してしまいます。
-#/opt/mssql/bin/sqlservr & /docker-entrypoint-initdb.d/import-data.sh
 /docker-entrypoint-initdb.d/import-data.sh & /opt/mssql/bin/sqlservr

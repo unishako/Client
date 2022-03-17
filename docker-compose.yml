@@ -4,7 +4,6 @@ services:
   mssql:
     build:
       context: .docker/mssql
-    image: mssql
     container_name: mssql
     ports:
       - 1433:1433

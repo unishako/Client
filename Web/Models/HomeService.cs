@@ -11,6 +11,11 @@ public class HomeService : IHomeService
     
     public int Add(int x, int y)
     {
+        var list = _repository.FindAll();
+        foreach (var emp in list)
+        {
+            Console.WriteLine(emp.Id + ":" + emp.Name);
+        }
         int z = _repository.Count();
         return x + y + z;
     }
